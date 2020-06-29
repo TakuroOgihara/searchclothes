@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!-- <link rel="stylesheet" href="css/reset.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Search Clothes</title>
+  </head>
+
+  <body>
+    <header class="bg-light p-3">
+      <form onsubmit="return false">
+        <div class="form-group row">
+          <label class="col-form-label col-md-2">
+            <a href="index.html" class="navbar-brand text-dark">
+              Search&nbsp;Clothes
+            </a>
+          </label>
+          <div class="col-11 col-md-9 mt-2">
+            <input
+              type="text"
+              class="form-control"
+              id="search-text"
+              placeholder="検索テキストを入力"
+              onkeydown="keydown_enter();"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-outline-primary col-1 col-md-1"
+            id="search-button"
+            onclick="button_click()"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </header>
+
+    <div class="main">
+      <div class="secInner">
+        <ul style="list-style: none;">
+          <div id="contentInner" class="row"></div>
+        </ul>
+      </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <!-- bootstrap template --start-- -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    ></script>
+    <!-- bootstrap template --end-- -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

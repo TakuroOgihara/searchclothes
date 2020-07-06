@@ -1,15 +1,13 @@
-const APPID = "1053580581661993383"; //アプリID *必須
-const GENREID = "551177";
-const IMAGEFLAG = "1";
-
+const APPID = "1053580581661993383"; //APIのID
+const GENREID = "551177"; //ジャンルコード（衣服）
+const IMAGEFLAG = "1"; //画像
 const MAX_PAGE = 3; //最大取得ページ件数(1ページ30件)。この場合3ページ = 90件取得。
-
 const SORT = "-reviewCount"; //レビューの多い順
 
 const searchButton = document.getElementById("search-button");
 
 function put_item(item) {
-  //ループで表示したいHTML部分を作成します
+  //ループで1件1件表示したいHTML部分を作成
   $("#contentInner").append(
     `
       <li class="col-md-4">
@@ -36,7 +34,7 @@ function put_item(item) {
   );
 }
 
-//ajax
+//商品情報のリクエスト
 function search_rakuten(page, KEYWORD) {
   $.ajax({
     url:
@@ -67,7 +65,7 @@ function search_rakuten(page, KEYWORD) {
       for (let i in goods) {
         put_item(goods[i].Item);
       }
-      //MAX_PAGEで設定した数値になるまでループします
+      //MAX_PAGEで設定した数値になるまでループする
       if (page < MAX_PAGE) {
         search_rakuten(page + 1, KEYWORD);
       }
@@ -78,19 +76,14 @@ function search_rakuten(page, KEYWORD) {
     });
 }
 
-searchButton.onclick = function () {
-  $("#contentInner").empty(); //検索結果リセット
-  const KEYWORD = document.getElementById("search-text").value;
-  search_rakuten(1, KEYWORD);
-};
-
-
+//入力欄に入力したKEYWORDで検索メソッド実行
 $("#search-button").click(function () {
   //処理を記載。
   $("#contentInner").empty(); //検索結果リセット
   const KEYWORD = document.getElementById("search-text").value;
   search_rakuten(1, KEYWORD);
 });
+//enterkeyを押して検索実行
 $("#search-text").keypress(function (e) {
   if (e.which == 13) {
     $("#search-button").click();
